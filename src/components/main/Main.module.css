@@ -1,0 +1,29 @@
+.main {
+  background-color: #dedcdc;
+  position: relative;
+  width: 1688px;
+  justify-content: center;
+  height: 1140px;
+  max-height: 1300px;
+  gap: 64px;
+  display: inline-flex;
+  align-items: flex-start;
+}
+.main .sidebar {
+  width: 390px;
+  margin-top: 50px;
+}
+.main .main_section {
+  margin-top: 50px;
+  width: 720px;
+  display: flex;
+  padding: 48px 32px;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 28px;
+  border-radius: 16px;
+  background: #FFF;
+  box-shadow: 0px 4px 33px 0px rgba(0, 0, 0, 0.04);
+}
+
+/*# sourceMappingURL=Main.module.css.map */

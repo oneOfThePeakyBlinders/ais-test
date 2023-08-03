@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {validator} from "./validator";
 import TextField from "./textField";
-import CheckBoxField from "../../../../SpaceCinema/my-app/src/components/authentication/components/checkBoxField";
-
+import styles from './Login.module.css';
+import {Link} from "react-router-dom";
 
 const LoginForm = () => {
     const [data, setData] = useState({email: "", password: "", stayOn:false});
@@ -14,17 +14,6 @@ const LoginForm = () => {
             [target.name]: target.value
         }))
     }
-
-
-    // const validateScheme = yup.object().shape({
-    //     password:yup.string().required('Пароль обязателен для заполнения')
-    //         .matches(/^(?=.*[A-Z])/,'Пароль дожен содержать хотя бы одну заглавную букву')
-    //         .matches(/(?=.*[0-9])/,'Пароль должен содержать хотя бы одну цифру')
-    //         .matches(/(?=.*[!@#&^$%!()*])/, 'Пароль должен содержать один из специальных символов !@#&^$%!()*')
-    //         .matches(/(?=.{8,})/,'Пароль должен состоять минимум из 8-ми символов :)' ),
-    //     email:yup.string().required('Электоранная почта обязательна для заполнения').email('Email введен некорректно')
-    // })
-
 
     const validatorConfig = {
         email: {
@@ -52,21 +41,12 @@ const LoginForm = () => {
         }
     }
 
-
-
     useEffect(() => {
         validate()
     }, [data]);
 
-
     const validate = () => {
         const errors = validator(data, validatorConfig);
-        //validateScheme.validate(data).then(() => setErrors({})).catch((error) => setErrors({[error.path]:error.message}) )
-        // for (const fieldName in data) {
-        //     if (data[fieldName].trim() === '') {
-        //         errors[fieldName] = `${fieldName} обязательно для заполнения`
-        //     }
-        // }
         setErrors(errors);
         return Object.keys(errors).length === 0;
     }
@@ -75,16 +55,15 @@ const LoginForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const isValid = validate();
-        //console.log(!isValid)
         if (!isValid) return;
         console.log(data);
     }
 
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className={styles.form_input} onSubmit={handleSubmit}>
             <TextField type="text"
-                       label='email'
+                       label='Логин'
                        id='email'
                        name='email'
                        value={data.email}
@@ -92,15 +71,16 @@ const LoginForm = () => {
                        onChange={handleChange}
             />
             <TextField type="password"
-                       label='password'
+                       label='Пароль'
                        id='password'
                        name='password'
                        value={data.password}
                        error={errors.password}
                        onChange={handleChange}
             />
-            <CheckBoxField value={data.stayOn} name='stayOn' onChange={handleChange}>Оставаться в системе</CheckBoxField>
-            <button className='btn btn-primary w-100 mx-auto' type='submit' disabled={!isValid}>Submit</button>
+            <Link to={'/main'}>
+                <button className={styles.submitBtn} type='submit' disabled={!isValid}>Войти</button>
+            </Link>
         </form>
     )
 };

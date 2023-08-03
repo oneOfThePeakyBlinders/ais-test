@@ -1,0 +1,50 @@
+.submitBtn {
+  background: linear-gradient(104.34deg, #41522E -15.34%, #BE8022 145.95%);
+  width: 361px;
+  height: 40px;
+  border-radius: 4px;
+  color: white;
+  position: static;
+  margin-top: 20px;
+}
+
+.login_container {
+  background-color: #282c34;
+
+  .login_container_row {
+    background-color: #41522E;
+    background-image: url("../../assets/images/imgonline-com-ua-Blur-kIyt38G68Ba.png");
+    position: relative;
+    height: 780px;
+    display: flex;
+
+    .overlay {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(255, 255, 255, 0.6);
+      opacity: 1.7;
+    }
+
+    .login_action {
+      background-color: #ffffff;
+      width: 409px;
+      height: 392px;
+      margin: auto;
+      border-radius: 12px;
+      position: relative;
+      z-index: 100;
+
+    }
+  }
+}
+
+
+.form_input {
+  @apply p-4;
+  //background-color: #BE8022;
+  width: 409px;
+  height: 277px;
+}

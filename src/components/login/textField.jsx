@@ -16,8 +16,8 @@ const TextField = ({onChange, type, id, value, name, label, error}) => {
     }
 
     return (
-        <div className='mb-4'>
-            <label htmlFor={name}>{label}</label>
+        <div className='mb-2 p-1 h-[84px]'>
+            <label className='flex justify-content-start' htmlFor={name}>{label}</label>
             <div className="input-group has-validation">
                 <input type={showPassword ? 'text' : type}
                        id={id}
